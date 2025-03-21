@@ -1,34 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "epicade@yahoo.com";  // Change this to your email
-    $subject = "New Moderator Application";
-
-    $message = "New Moderator Application:\n\n";
-    $message .= "Discord Username: " . $_POST["discord_username"] . "\n";
-    $message .= "Age: " . $_POST["age"] . "\n";
-    $message .= "Timezone: " . $_POST["timezone"] . "\n";
-    $message .= "How long in server: " . $_POST["server_duration"] . "\n";
-    $message .= "Other servers moderated: " . $_POST["moderation_experience"] . "\n";
-    $message .= "Experience: " . $_POST["experience"] . "\n";
-    $message .= "Understands Discord TOS: " . $_POST["discord_tos"] . "\n";
-    $message .= "Knows Discord bots: " . $_POST["bots_experience"] . "\n";
-    $message .= "Handling spam/toxicity: " . $_POST["scenario_spam"] . "\n";
-    $message .= "Handling harassment report: " . $_POST["scenario_report"] . "\n";
-    $message .= "Handling arguments: " . $_POST["scenario_argument"] . "\n";
-    $message .= "Daily availability: " . $_POST["availability"] . "\n";
-    $message .= "Comfortable in team: " . $_POST["teamwork"] . "\n";
-    $message .= "Why they want to mod: " . $_POST["motivation"] . "\n";
-
-    $headers = "From: noreply@yourwebsite.com";
-
-    if (mail($to, $subject, $message, $headers)) {
-        echo "<script>alert('Application submitted successfully!'); window.location.href='index.php';</script>";
-    } else {
-        echo "<script>alert('Error sending application. Try again later.'); window.location.href='index.php';</script>";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,58 +19,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Epicade's Hangout - Moderator Application</h2>
 
     <div class="container">
-        <form action="" method="POST">
+        <form action="https://formsubmit.co/epecade@yahoo.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            
             <label>Discord Username (with #ID):</label>
-            <input type="text" name="discord_username" required>
+            <input type="text" name="Discord Username" required>
 
             <label>Age:</label>
-            <input type="number" name="age" required>
+            <input type="number" name="Age" required>
 
             <label>Timezone:</label>
-            <input type="text" name="timezone" required>
+            <input type="text" name="Timezone" required>
 
             <label>How long have you been in the server?</label>
-            <input type="text" name="server_duration" required>
+            <input type="text" name="Server Duration" required>
 
-            <label>Are you currently moderating any other Discord servers?</label>
-            <textarea name="moderation_experience"></textarea>
+            <label>Moderation Experience:</label>
+            <textarea name="Experience" required></textarea>
 
-            <label>Do you have prior moderation experience? (Explain briefly)</label>
-            <textarea name="experience" required></textarea>
+            <label>Daily Availability (hours):</label>
+            <input type="text" name="Availability" required>
 
-            <label>How well do you understand Discord’s Terms of Service and Community Guidelines?</label>
-            <select name="discord_tos" required>
-                <option value="Very Well">Very Well</option>
-                <option value="Somewhat">Somewhat</option>
-                <option value="Not Much">Not Much</option>
-            </select>
-
-            <label>Are you familiar with Discord bots and moderation tools?</label>
-            <select name="bots_experience" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label>A member is spamming and being toxic. How would you handle it?</label>
-            <textarea name="scenario_spam" required></textarea>
-
-            <label>A user reports another member for harassment. What steps would you take?</label>
-            <textarea name="scenario_report" required></textarea>
-
-            <label>If two members are having an argument, how would you de-escalate the situation?</label>
-            <textarea name="scenario_argument" required></textarea>
-
-            <label>How many hours per day can you dedicate to moderating?</label>
-            <input type="text" name="availability" required>
-
-            <label>Are you comfortable working in a team and taking feedback?</label>
-            <select name="teamwork" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label>Why do you want to be a moderator on this server?</label>
-            <textarea name="motivation" required></textarea>
+            <label>Why do you want to be a moderator?</label>
+            <textarea name="Motivation" required></textarea>
 
             <button type="submit">Submit Application</button>
         </form>
